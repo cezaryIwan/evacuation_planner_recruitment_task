@@ -21,8 +21,10 @@ markdown-it-py==4.0.0
 MarkupSafe==3.0.3
 mdurl==0.1.2
 orjson==3.11.5
+overpy==0.7
 packaging==25.0
 pluggy==1.6.0
+punq==0.7.0
 pydantic==2.12.5
 pydantic-extra-types==2.10.6
 pydantic-settings==2.12.0

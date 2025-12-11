@@ -5,17 +5,18 @@ from app.main import app
 client = TestClient(app)
 ok_json = {"result": "ok"}
 
+
 def test_get_route_valid_integer():
-    with patch("app.api.evac_router.evaluate_evac_route") as mocked_service:
-        mocked_service.return_value = ok_json
+    with patch("app.api.evac_router.EvacRouteService.evaluate_evac_route") as mocked:
+        mocked.return_value = ok_json
         response = client.get("/api/evac/route", params={"start": "10,20", "end": "30,40"})
         assert response.status_code == 200
         assert response.json() == ok_json
 
 
 def test_get_route_valid_float():
-    with patch("app.api.evac_router.evaluate_evac_route") as mocked_service:
-        mocked_service.return_value = ok_json
+    with patch("app.api.evac_router.EvacRouteService.evaluate_evac_route") as mocked:
+        mocked.return_value = ok_json
         response = client.get("/api/evac/route", params={"start": "10.5,20.1", "end": "30.25,40.75"})
         assert response.status_code == 200
         assert response.json() == ok_json
